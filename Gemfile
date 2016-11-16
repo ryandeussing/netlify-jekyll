@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+gem 'jekyll', '3.2.1'
 gem 'github-pages'
 gem 'html-proofer', '~> 3.0.0'
 gem 'travis'
