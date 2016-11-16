@@ -2,6 +2,7 @@
 _site
 .sass-cache
 .gems
+.rbenv-gemsets
 tmp
 node_modules
 assets
