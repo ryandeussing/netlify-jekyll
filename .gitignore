@@ -1,6 +1,7 @@
 # For Jekyll.
 _site
 .sass-cache
+.gems
 tmp
 node_modules
 assets
