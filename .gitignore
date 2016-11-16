@@ -3,9 +3,3 @@ _site
 .sass-cache
 tmp
 node_modules
-assets
-_includes/critical.css
-
-# For Travis.
-.bundle
-vendor
