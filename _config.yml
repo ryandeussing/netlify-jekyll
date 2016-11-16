@@ -30,8 +30,7 @@ paginate: 6
 paginate_path: "/blog/:num/"
 
 # For Travis CI and gulp
-exclude: ["vendor",
-          "_assets",
+exclude: ["_assets",
           "Gemfile",
           "Gemfile.lock",
           "gulpfile.js",
@@ -56,8 +55,7 @@ collections:
 # Gems
 gems:
   - jekyll-sitemap
-  - jekyll-redirect-from
-  - jekyll-paginate
+  #- jekyll-paginate
   - jekyll-picture-tag
   - jemoji
 
