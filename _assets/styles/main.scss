@@ -8,8 +8,7 @@ $visual-grid-opacity: 0.2;
 "base/base", // includes grid-settings, which must be imported before neat
 "modules/grid-settings", //overrides bitters grid-settings
 "neat",
-"modules/mixins",
-"modules/flickity";
+"modules/mixins";
 // Fonts
 @font-face {
     font-family: 'Portrait Web';
@@ -52,6 +51,11 @@ $visual-grid-opacity: 0.2;
 
 .container {
     @include outer-container();
+    .inner-container {
+      @include span-columns(11);
+      @include shift(1);
+      background-color: yellow;
+    }
 }
 
 .logo {
