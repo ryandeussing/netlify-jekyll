@@ -54,7 +54,7 @@ $visual-grid-opacity: 0.2;
     .inner-container {
       @include span-columns(11);
       @include shift(1);
-      background-color: yellow;
+      background-color: lightblue;
     }
 }
 
