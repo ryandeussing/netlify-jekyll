@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 gem 'jekyll', '3.2.1'
 gem 'html-proofer', '~> 3.0.0'
-gem 'travis'
 gem 'scss_lint'
 gem 'json', '~> 1.8.3'
 gem 'mdl'

@@ -66,3 +66,6 @@ paths.jekyllImageFilesGlob = paths.jekyllImageFiles + paths.imagePattern;
 paths.siteHtmlFilesGlob = paths.siteDir + paths.htmlPattern;
 
 module.exports = paths;
+
+
+

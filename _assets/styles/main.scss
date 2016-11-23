@@ -1,48 +1,284 @@
-/**
- * @file
- * Styles are organized using the SMACSS technique. @see http://smacss.com/book/
- */
+// $visual-grid: true;
+$visual-grid-color: yellow;
+$visual-grid-index: front;
+$visual-grid-opacity: 0.2;
+//Base
+@import "node_modules/normalize.scss/normalize",
+"bourbon",
+"base/base", // includes grid-settings, which must be imported before neat
+"modules/grid-settings", //overrides bitters grid-settings
+"neat",
+"modules/mixins",
+"modules/flickity";
+// Fonts
+@font-face {
+    font-family: 'Portrait Web';
+    src: url('/assets/fonts/Portrait-Light-Web.eot');
+    src: url('/assets/fonts/Portrait-Light-Web.eot?#iefix') format('embedded-opentype'), url('/assets/fonts/Portrait-Light-Web.woff2') format('woff2'), url('/assets/fonts/Portrait-Light-Web.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-stretch: normal;
+}
 
-/* Import Sass mixins, variables, Compass modules, Bourbon and Neat, etc. */
-@import 'scss/init';
+.Portrait {
+    font-family: 'Portrait Web';
+    font-weight: 300;
+    font-style: normal;
+    font-stretch: normal;
+}
 
-/* HTML element (SMACSS base) rules */
-@import 'scss/base/normalize';
-@import 'scss/base/base';
-@import 'scss/base/tables';
-@import 'scss/base/typography';
+@font-face {
+    font-family: 'UniversLT-Condensed';
+    src: url('/assets/fonts/321C3D_0_0.eot');
+    src: url('/assets/fonts/321C3D_0_0.eot?#iefix') format('embedded-opentype'), url('/assets/fonts/321C3D_0_0.woff2') format('woff2'), url('/assets/fonts//321C3D_0_0.woff') format('woff'), url('/assets/fonts/321C3D_0_0.ttf') format('truetype');
+}
 
-/* Layout rules */
-@import 'scss/layout/base-layout';
+@font-face {
+    font-family: 'UniversLTPro-UltraCn';
+    src: url('/assets/fonts/321C3D_1_0.eot');
+    src: url('/assets/fonts/321C3D_1_0.eot?#iefix') format('embedded-opentype'), url('/assets/fonts/321C3D_1_0.woff2') format('woff2'), url('/assets/fonts/321C3D_1_0.woff') format('woff'), url('/assets/fonts/321C3D_1_0.ttf') format('truetype');
+}
 
-/* Component rules (called 'modules' in SMACSS) */
-@import 'scss/components/cards';
-@import 'scss/components/case-study-list';
-@import 'scss/components/comments';
-@import 'scss/components/contact-block';
-@import 'scss/lib/font-awesome/font-awesome';
-@import 'scss/components/footer';
-@import 'scss/components/header-links';
-@import 'scss/components/home';
-@import 'scss/components/home-cover-image';
-@import 'scss/components/navigation';
-@import 'scss/components/post-footnotes';
-@import 'scss/components/post-meta';
-@import 'scss/components/post-top';
-@import 'scss/components/previous-next-links';
-@import 'scss/components/services-top';
-@import 'scss/components/sub-services';
-@import 'scss/components/syntax-highlighting';
-@import 'scss/components/team-bottom';
-@import 'scss/components/team-member-badges';
-@import 'scss/components/team-member-posts';
-@import 'scss/components/team-member-top';
-@import 'scss/components/work';
-@import 'scss/components/work-case-study';
-@import 'scss/components/work-case-study-cover-image';
-@import 'scss/components/work-portfolio';
-@import 'scss/components/work-table';
+.UniversCondensed {
+  font-family: UniversLT-Condensed;
+  font-weight: normal;
+  font-style: normal;
+}
+.UniversUltraCondensed {
+  font-family: UniversLTPro-UltraCn;
+  font-weight: normal;
+  font-style: normal;
+}
 
+.container {
+    @include outer-container();
+}
 
-/* Misc CSS files. */
-@import 'leaflet.css';
+.logo {
+    text-align: center;
+    img {
+        width: 232px;
+        @include media($s-up){
+          margin-top: 20px;
+        }
+        @include media($l-up){
+          margin-top: 62px;
+        }
+    }
+}
+
+.flickity-slider {
+  transform: none !important;
+}
+
+.main-carousel {
+  @include media($s-up){
+    margin-top: 27px;
+  }
+  @include media($l-up){
+    margin-top: 79px;
+  }
+
+  margin-bottom: 61px;
+  .carousel-cell {
+    width: 100%;
+    left: 0 !important;
+    opacity: 0;
+    transition: opacity 0.6s ease-in-out;
+    z-index: -1;
+    img {
+        width: 100%;
+        max-width: 100%;
+    }
+  }
+  .carousel-cell.is-selected{
+    opacity: 1;
+    z-index: 0
+}
+}
+
+.body {
+  text-align: center;
+  margin-bottom: 48px;
+  @include media($s){
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  @include media($m){
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  .headline {
+    font-size: 44px;
+    color: #202020;
+    letter-spacing: 1.83px;
+    line-height: 45px;
+    margin-bottom: 17px;
+  }
+  .subhead {
+    font-size: 12px;
+    color: #A45833;
+    letter-spacing: 1.5px;
+    line-height: 18px;
+    margin-bottom: 0px;
+  }
+}
+
+.divider-wrapper {
+@include outer-container;
+}
+
+.divider {
+  position: relative;
+  @include media($s){
+    width: 86px;
+    margin-left: 20px;
+    margin-bottom: -9px;
+  }
+  @include media($m){
+    width: 86px;
+    margin-left: 20px;
+  }
+  @include media($l-up){
+    @include span-columns(2);
+    margin-left: 0;
+  }
+  @include media($s-up){
+    margin-left: 20px;
+  }
+  @include media($xl){
+    margin-left: 0;
+  }
+
+  height: 18px;
+  background-color: #A45833;
+}
+
+.contact {
+  @include media($ipad-up){
+    height: 333px;
+  }
+  background-color: #f9f7f6;
+  // background: lightgreen;
+  @include media($s-up){
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+  @include media($ipad-up){
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+  // background: yellow;
+  .wrapper {
+    @include outer-container();
+    @include media($ipad-up){
+      height: 333px;
+    }
+    margin: 0 auto;
+    @include media($s-up){
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+    @include media($xl){
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+}
+
+.inquiries, .consult, .media, .careers {
+  @include media($s-up){
+    width: 100%
+  }
+  @include media($ipad-up){
+    float: left;
+    width: 25%;
+    margin-top: 100px;
+  }
+  p {
+    font-size: 19px;
+    color: #202020;
+    letter-spacing: 0.21px;
+    line-height: 27px;
+    margin: 0;
+    a {
+      color: #202020;
+      text-decoration: none;
+      display: inline-block;
+      // padding-bottom: 1px;
+      border-bottom: 1px solid #A45833;
+    }
+  }
+  p.headline {
+    font-size: 18px;
+    color: #202020;
+    letter-spacing: 1px;
+    line-height: 18px;
+    margin-bottom: 15px;
+  }
+}
+
+.consult, .media, .careers {
+  @include media($s-up){
+    p.headline {
+      margin-top: 60px;
+    }
+  }
+  @include media($ipad-up){
+    p.headline {
+      margin-top: 0px;
+    }
+  }
+}
+
+.footer {
+  @include outer-container();
+  @include media($s-up){
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+  @include media($l-up){
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+  @include media($l){
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  @include media($xl){
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+  .copyright {
+    @include media($s-up){
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+    @include media($l-up){
+      text-align: left;
+      height: 72px;
+      float: left;
+      margin-bottom: 0;
+    }
+  }
+  .address {
+    @include media($s-up){
+      text-align: center;
+    }
+    @include media($l-up){
+      text-align: left;
+      height: 72px;
+      float: right;
+    }
+  }
+  p {
+    @include media($l-up){
+      @include vertical-align();
+    }
+
+    font-size: 12px;
+    color: #202020;
+    letter-spacing: 1.99px;
+    margin: 0;
+  }
+}
